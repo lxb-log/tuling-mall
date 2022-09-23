@@ -188,7 +188,8 @@ LOGGING = {
     }
 }
 
-
+# 覆盖django内置的用户模型类
+AUTH_USER_MODEL = 'users.User'
 
 
 
