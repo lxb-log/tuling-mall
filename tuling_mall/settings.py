@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     # cors 安装注册完成后需要进行中间件注册,并且注册位置需要在顶层
-    'corsheaders.middleware.CorsMiddleware'
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,9 +59,9 @@ MIDDLEWARE = [
 
 # 当cors注册完成之后需要设置跨与白名单
 CORS_ORIGIN_WHITELIST = (
-    "http://127.0.0.1:8080"
-    "http://127.0.0.1:8100"
-    "http://localhost:8080"
+    "http://127.0.0.1:8080",
+    "http://127.0.0.1:8100",
+    "http://localhost:8080",
     "http://localhost:8100"
 )
 # 允许跨域时携带 cookies
