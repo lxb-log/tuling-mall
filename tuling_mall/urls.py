@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, register_converter
 
-from .utils.converters import UsernameConverter
+from utils.converters import UsernameConverter
 # 注册路由转换器
 register_converter(UsernameConverter, 'username')
 
