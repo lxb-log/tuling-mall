@@ -4,6 +4,7 @@ cffi==1.15.1
 cryptography==38.0.1
 Deprecated==1.2.13
 Django==2.2.6
+django-cors-headers==3.0.0
 django-redis==5.2.0
 h5py==2.10.0
 numpy==1.23.3

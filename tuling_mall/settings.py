@@ -30,7 +30,10 @@ ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
-
+# 前端和后端运行端口不一致 导致跨域请求失败
+# django-cors-headers
+# 如果时django版本是2.x 不能安装最新的
+# pip install django-cors-headers==3
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,10 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'users',
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
+    # cors 安装注册完成后需要进行中间件注册,并且注册位置需要在顶层
+    'corsheaders.middleware.CorsMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +56,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# 当cors注册完成之后需要设置跨与白名单
+CORS_ORIGIN_WHITELIST = (
+    "http://127.0.0.1:8080"
+    "http://127.0.0.1:8100"
+    "http://localhost:8080"
+    "http://localhost:8100"
+)
+# 允许跨域时携带 cookies
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'tuling_mall.urls'
 
